@@ -1,8 +1,10 @@
+// filepath: c:\Users\keert\OneDrive\Desktop\wpm\app_server\views\layout.jade
 doctype html
 html
   head
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title= title
+    - var pageTitle = (typeof title !== 'undefined') ? title : 'Loc8r'
+    title= pageTitle
     link(rel="stylesheet", href="/stylesheets/bootstrap.min.css")
     link(rel="stylesheet", href="/stylesheets/all.min.css")
     link(rel="stylesheet", href="/stylesheets/style.css")
@@ -23,15 +25,12 @@ html
             li.nav-item
               a.nav-link.text-white(href="/about/") About
 
-    // Main Content
-    .container
-      block content
-
-    // Footer
-    footer.py-4.bg-light.mt-auto
-      .container-fluid
-        .d-flex.align-items-center.justify-content-between.small
-          .text-muted Copyright &copy; Simon Holmes 2017
+    // Main Content - allow views to insert content via block content
+    .container-fluid.bg-info.text-white.min-vh-100
+      .container.py-5
+        block content
+        footer.mt-4
+          p © Simon Holmes 2017
 
     // Scripts
     script(src="https://code.jquery.com/jquery-3.3.1.slim.min.js", integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo", crossorigin="anonymous")

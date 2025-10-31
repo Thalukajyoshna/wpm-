@@ -1,6 +1,11 @@
+// filepath: c:\Users\keert\OneDrive\Desktop\wpm\app_server\views\error.jade
 extends layout
 
 block content
   h1= message
-  h2= error.status
-  pre #{error.stack}
+  - var errStatus = (typeof error !== 'undefined' && error && error.status) ? error.status : ''
+  if errStatus
+    h2= errStatus
+  - var errStack = (typeof error !== 'undefined' && error && error.stack) ? error.stack : ''
+  if errStack
+    pre #{errStack}

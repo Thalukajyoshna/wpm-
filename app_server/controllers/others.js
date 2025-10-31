@@ -1,7 +1,7 @@
- /* GET 'about' page */
- const about = (req, res) => {
-  res.render('index', { title: 'About' });
- };
- module.exports = {
+// filepath: c:\Users\keert\OneDrive\Desktop\wpm\app_server\controllers\others.js
+const about = (req, res) => {
+  res.render('generic-text', { title: 'About' });
+};
+module.exports = {
   about
- };
+};
